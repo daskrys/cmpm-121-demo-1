@@ -14,6 +14,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.card {
+  padding: 2em;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -55,7 +59,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #86ff64;
 }
 button:focus,
 button:focus-visible {
@@ -65,10 +69,10 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #1d1d1d;
   }
   a:hover {
-    color: #747bff;
+    color: #3cd83c;
   }
   button {
     background-color: #f9f9f9;

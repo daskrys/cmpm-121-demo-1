@@ -15,7 +15,7 @@ export function setupCounter(element: HTMLButtonElement) {
       ghostButton.disabled = true;
     }
 
-    if(ghostCounter >= 10){
+    if (ghostCounter >= 10) {
       zombieButton.disabled = false;
     } else {
       zombieButton.disabled = true;
@@ -23,7 +23,7 @@ export function setupCounter(element: HTMLButtonElement) {
 
     pumpCount = Math.round(counter / 100);
     ghostButton.innerHTML = `${ghostCounter} 👻's`;
-    zombieButton.innerHTML = `${zombieCounter} 🧟's`; 
+    zombieButton.innerHTML = `${zombieCounter} 🧟's`;
     element.innerHTML = `${pumpCount} 🎃's`;
     requestAnimationFrame(animate);
   }
@@ -40,8 +40,8 @@ export function setupCounter(element: HTMLButtonElement) {
   });
 
   zombieButton.addEventListener("click", () => {
-      ghostCounter -= 10;
-      zombieCounter++;
-      zombieButton.innerHTML = `${zombieCounter} 🧟's`;
-    });
+    ghostCounter -= 10;
+    zombieCounter++;
+    zombieButton.innerHTML = `${zombieCounter} 🧟's`;
+  });
 }

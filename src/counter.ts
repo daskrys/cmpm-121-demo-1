@@ -1,19 +1,30 @@
 export function setupCounter(element: HTMLButtonElement) {
   let counter = 0;
-  let pumpkinCounter = 0;
-  const pumpkinButton = document.querySelector<HTMLButtonElement>("#btn2")!;
+  let ghostCounter: number = 0;
+  let zombieCounter: number = 0;
+  let pumpCount: number = 0;
+  const ghostButton = document.querySelector<HTMLButtonElement>("#btn2")!;
+  const zombieButton = document.querySelector<HTMLButtonElement>("#btn3")!;
 
   function animate() {
     counter++;
 
     if (counter >= 1000) {
-      pumpkinButton.disabled = false;
+      ghostButton.disabled = false;
     } else {
-      pumpkinButton.disabled = true;
+      ghostButton.disabled = true;
     }
 
-    const ghostCount: number = Math.round(counter / 100);
-    element.innerHTML = `👻 Count: ${ghostCount}`;
+    if(ghostCounter >= 10){
+      zombieButton.disabled = false;
+    } else {
+      zombieButton.disabled = true;
+    }
+
+    pumpCount = Math.round(counter / 100);
+    ghostButton.innerHTML = `${ghostCounter} 👻's`;
+    zombieButton.innerHTML = `${zombieCounter} 🧟's`; 
+    element.innerHTML = `${pumpCount} 🎃's`;
     requestAnimationFrame(animate);
   }
 
@@ -22,9 +33,15 @@ export function setupCounter(element: HTMLButtonElement) {
     window.requestAnimationFrame(animate);
   });
 
-  pumpkinButton.addEventListener("click", () => {
-    counter -= 200;
-    pumpkinCounter++;
-    pumpkinButton.innerHTML = `${pumpkinCounter} 🎃's`;
+  ghostButton.addEventListener("click", () => {
+    counter -= 1000;
+    ghostCounter++;
+    ghostButton.innerHTML = `${ghostCounter} 👻's`;
   });
+
+  zombieButton.addEventListener("click", () => {
+      ghostCounter -= 10;
+      zombieCounter++;
+      zombieButton.innerHTML = `${zombieCounter} 🧟's`;
+    });
 }

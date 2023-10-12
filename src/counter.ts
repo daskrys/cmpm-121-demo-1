@@ -1,21 +1,19 @@
 export function setupCounter(element: HTMLButtonElement) {
   let counter = 0;
   let pumpkinCounter = 0;
-  let pumpkinButton = document.querySelector<HTMLButtonElement>("#btn2")!;
+  const pumpkinButton = document.querySelector<HTMLButtonElement>("#btn2")!;
 
   function animate() {
-    //counter++;
-    if (counter > 500) {
-      counter = 0;
-    }
+    counter++;
 
-    if (counter >= 10) {
+    if (counter >= 100) {
       pumpkinButton.disabled = false;
     } else {
       pumpkinButton.disabled = true;
     }
 
-    element.innerHTML = `👻 Count: ${counter}`;
+    let ghostCount: number = Math.round(counter / 100);
+    element.innerHTML = `👻 Count: ${ghostCount}`;
     requestAnimationFrame(animate);
   }
 
@@ -25,7 +23,7 @@ export function setupCounter(element: HTMLButtonElement) {
   });
 
   pumpkinButton.addEventListener("click", () => {
-    counter -= 10;
+    counter -= 200;
     pumpkinCounter++;
     pumpkinButton.innerHTML = `${pumpkinCounter} 🎃's`;
   });

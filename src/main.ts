@@ -7,12 +7,8 @@ document.querySelector<HTMLDivElement>("#counter")!.innerHTML = `
     <div class="card"><button id="btn" type="button"> 0 👻's </button></div>
     <div class="card"><button id="btn2" type="button" disabled> 0 🎃's</button></div>
 `;
-/*
-document.querySelector<HTMLDivElement>("#pumpkin")!.innerHTML = `
-    <div class="card"><button id="btn2" type="button"> 0 🎃's </button></div>
-`; */
 
-const gameName = "Demo 1";
+const gameName = "Halloween Havoc";
 
 document.title = gameName;
 

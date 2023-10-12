@@ -10,7 +10,7 @@ halloweenTitle.innerHTML = gameName;
 
 document.querySelector<HTMLDivElement>("#counter")!.innerHTML = `
     <div class="card">
-        <button id="btn" type="button"> 0 🎃's </button>
+        <h1><button id="btn" type="button"> 0 🎃's </button></h1>
         <p id="PumpkinLabel">1 🎃/s or click</p>
     </div>
     <div class="card">

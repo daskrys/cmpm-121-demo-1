@@ -6,13 +6,13 @@ export function setupCounter(element: HTMLButtonElement) {
   function animate() {
     counter++;
 
-    if (counter >= 100) {
+    if (counter >= 1000) {
       pumpkinButton.disabled = false;
     } else {
       pumpkinButton.disabled = true;
     }
 
-    let ghostCount: number = Math.round(counter / 100);
+    const ghostCount: number = Math.round(counter / 100);
     element.innerHTML = `👻 Count: ${ghostCount}`;
     requestAnimationFrame(animate);
   }

@@ -57,7 +57,7 @@ export function setupCounter(pumpkinButton: HTMLButtonElement) {
   let pumpkinRate: number = 0;
   const HalloweenLength: number = Halloween.length;
   let firstClick: boolean = false; // flag to check if animation is running
-  let pumpkinLabel =
+  const pumpkinLabel =
     document.querySelector<HTMLParagraphElement>("#PumpkinLabel")!;
   let lastTime: number = 0;
 
@@ -73,7 +73,7 @@ export function setupCounter(pumpkinButton: HTMLButtonElement) {
 
   function pumpkin() {
     pumpkinCounter = counter;
-    pumpkinButton.innerHTML = `${pumpkinCounter.toFixed(2)} 🎃's`;
+    pumpkinButton.innerHTML = `${pumpkinCounter.toFixed(2)} 🎃s`;
     pumpkinLabel.innerHTML = `${pumpkinRate.toFixed(2)} 🎃/s`;
     console.log(pumpkinCounter);
 
@@ -102,12 +102,13 @@ export function setupCounter(pumpkinButton: HTMLButtonElement) {
       counter -= Halloween[i].cost;
       Halloween[i].cost *= 1.15;
       Halloween[i].count++;
-      buttons[
-        i
-      ].innerHTML = `${Halloween[i].count} ${Halloween[i].description}'s ${Halloween[i].name}`;
-      labels[i].innerHTML = `1 ${Halloween[i].name} / ${Halloween[
-        i
-      ].cost.toFixed(2)} 🎃's`;
+      if(Halloween[i].count === 1) {
+        buttons[i].innerHTML = `${Halloween[i].count} ${Halloween[i].description} ${Halloween[i].name}`;
+      } else {
+        buttons[i].innerHTML = `${Halloween[i].count} ${Halloween[i].description}s ${Halloween[i].name}`;
+      }
+
+      labels[i].innerHTML = `${Halloween[i].cost.toFixed(2)} 🎃s`;
       pumpkinRate += Halloween[i].rate;
       pumpkin();
     });
